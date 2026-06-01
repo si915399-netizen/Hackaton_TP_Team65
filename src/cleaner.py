@@ -39,14 +39,20 @@ def _translit_replace(match):
 
 def translit_to_cyrillic(text):
     if not text:
-        return text
-    if re.search(r'[а-яёА-ЯЁ]', text):
-        return text
-    return _translit_pattern.sub(_translit_replace, text)
-
-def clean_text(text, remove_stopwords=True):
-    if not text:
         return ""
+    words = text.split()
+    converted = []
+    for word in words:
+        if re.search(r"[а-яё]", word, re.I):
+            converted.append(word)
+        else:
+            converted.append(
+                _translit_pattern.sub(
+                    _translit_replace,
+                    word
+                )
+            )
+    return " ".join(converted)
 
     text = text.lower()
     text = re.sub(r'https?://\S+|ftp://\S+|www\.\S+', '', text)
