@@ -1,7 +1,7 @@
 import pytest
 from src.keyword_extractor import KeywordExtractor
 
-class TestKeywordExtractor:
+class Test_Keyword_Extractor:
 
     @pytest.fixture
     def extractor(self):
@@ -9,7 +9,7 @@ class TestKeywordExtractor:
             min_word_length=3,
             min_total_count=2,
             min_mail_count=2,
-            max_mail_part=0.8,
+            max_mail_part=1.0,
             theme_weight=3
         )
 
