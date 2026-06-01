@@ -7,6 +7,7 @@ class FileManager:
         base_dir = Path(__file__).resolve().parent.parent
         processed_dir = base_dir / "data" / "processed"
         self.processed_dir = Path(processed_dir)
+        self.processed_dir.mkdir(parents=True, exist_ok=True)
 
     def move_file_to_category(self, source_file_path, classification_result):
         source_file_path = Path(source_file_path)

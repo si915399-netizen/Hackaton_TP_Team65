@@ -13,7 +13,7 @@ class TestParser:
 
     def test_read_eml_file(self, tmp_path):
         f = tmp_path / "mail.eml"
-        f.write_text("From: ivan_vse_propalo@corp.ru\nSubject: Help\n\nБаза лежит, ничего не работает!!", encoding="utf-8")
+        f.write_text("From: ivan_lopatin@corp.ru\nSubject: Help\n\nБаза лежит, ничего не работает!!", encoding="utf-8")
         result = parse_file(str(f))
         assert result is not None
         assert "База лежит" in result
