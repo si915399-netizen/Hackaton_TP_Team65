@@ -1,6 +1,6 @@
 from pathlib import Path
-from parser import parse_file
-from cleaner import process_raw_email
+from src.parser import parse_file
+from src.cleaner import process_raw_email
 
 class TestIntegration:
 
