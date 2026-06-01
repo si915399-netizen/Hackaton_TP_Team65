@@ -1,6 +1,6 @@
 import pytest
 from pathlib import Path
-from parser import parse_file, _is_text_file
+from src.parser import parse_file, _is_text_file
 
 class TestParser:
 
