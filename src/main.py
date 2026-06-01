@@ -42,7 +42,7 @@ def create_candidates_keywords():
     result = extractor.extract_keywords(cleaned_mails)
     result["skipped_files"] = skipped_files
     save_keywords_to_json(result)
-
+    build_categories()
     print("Файл candidates_keywords.json создан.")
     print(f"Обработано писем: {len(cleaned_mails)}")
     print(f"Пропущено файлов: {len(skipped_files)}")
