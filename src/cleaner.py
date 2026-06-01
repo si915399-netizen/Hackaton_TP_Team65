@@ -4,7 +4,7 @@ import os
 def load_stopwords(filepath=None):
     if filepath is None:
         base_dir = os.path.dirname(os.path.abspath(__file__))
-        filepath = os.path.join(base_dir, '..', 'data', 'config', 'stopwords.txt')
+        filepath = os.path.join(base_dir, '..', 'data','stopwords.txt')
 
     stopwords = set()
     try:
@@ -86,18 +86,15 @@ def _extract_fields(raw):
         for name, pattern in head_patterns:
             match = pattern.match(line_stripped)
             if match:
-                # Если поле ещё не заполнено, заполняем (первое совпадение)
                 if not fields[name]:
                     fields[name] = match.group(1).strip()
                 matched = True
                 header_end = i + 1
                 break
         if not matched:
-            # Строка не похожа на заголовок — конец блока заголовков
             header_end = i
             break
 
-    # Тело — всё, что после последней строки заголовков
     if header_end < len(lines):
         fields['body'] = '\n'.join(lines[header_end:]).strip()
     else:
